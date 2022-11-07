@@ -1,0 +1,286 @@
+:root {
+    --clr-maroon: #26456e;
+    --clr-red: #d01110;
+    --clr-blue: #a2d3e9;
+    --clr-white: #ffff;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+	padding: 0;
+	background-color: #0e6cc4;
+	overflow-x:hidden;
+	overflow-y:hidden;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .box {
+    position: fixed;
+    top: 0;
+    transform: rotate(80deg);
+    left: 0;
+  }
+
+  .wave {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: .4;
+    position: absolute;
+    top: 3%;
+    left: 10%;
+    background: #0af;
+    width: 1500px;
+    height: 1300px;
+    margin-left: -150px;
+    margin-top: -250px;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 7000ms infinite linear;
+  }
+  
+  .wave.-three {
+    animation: drift 7500ms infinite linear;
+    position: fixed;
+    background-color: #77daff;
+  }
+  
+  .wave.-two {
+    animation: drift 3000ms infinite linear;
+    opacity: .1;
+    background: black;
+    position: fixed;
+  }
+  
+  .box:after {
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  @keyframes drift {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+  }
+  
+  /*LOADING SPACE*/
+  
+  .contain {
+    animation-delay: 4s;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  
+    background: #25a7d7;
+    background: -webkit-linear-gradient(#25a7d7, #2962FF);
+    background: linear-gradient(#25a7d7, #25a7d7);
+  }
+  
+  .icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 5px;
+  }
+  
+  /*Animation*/
+  .icon:nth-child(2) img {-webkit-animation-delay: 0.2s;animation-delay: 0.2s}
+  .icon:nth-child(3) img {-webkit-animation-delay: 0.3s;animation-delay: 0.3s}
+  .icon:nth-child(4) img {-webkit-animation-delay: 0.4s;animation-delay: 0.4s}
+  
+  .icon img {
+    -webkit-animation: anim 2s ease infinite;
+    animation: anim 2s ease infinite;
+    -webkit-transform: scale(0,0) rotateZ(180deg);
+    transform: scale(0,0) rotateZ(180deg);
+  }
+  
+  @-webkit-keyframes anim{
+    0% {
+      -webkit-transform: scale(0,0) rotateZ(-90deg);
+      transform: scale(0,0) rotateZ(-90deg);opacity:0
+    }
+    30% {
+      -webkit-transform: scale(1,1) rotateZ(0deg);
+      transform: scale(1,1) rotateZ(0deg);opacity:1
+    }
+    50% {
+      -webkit-transform: scale(1,1) rotateZ(0deg);
+      transform: scale(1,1) rotateZ(0deg);opacity:1
+    }
+    80% {
+      -webkit-transform: scale(0,0) rotateZ(90deg);
+      transform: scale(0,0) rotateZ(90deg);opacity:0
+    }
+  }
+  
+  @keyframes anim{
+    0% {
+      -webkit-transform: scale(0,0) rotateZ(-90deg);
+      transform: scale(0,0) rotateZ(-90deg);opacity:0
+    }
+    30% {
+      -webkit-transform: scale(1,1) rotateZ(0deg);transform: scale(1,1) rotateZ(0deg);opacity:1
+    }
+    50% {
+      -webkit-transform: scale(1,1) rotateZ(0deg);
+      transform: scale(1,1) rotateZ(0deg);opacity:1
+    }
+    80% {
+      -webkit-transform: scale(0,0) rotateZ(90deg);
+      transform: scale(0,0) rotateZ(90deg);opacity:0
+    }
+  }
+
+  .header{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50);
+
+  }
+  .main {
+    width: 100%;
+    height: 200vh;
+    background: var(--clr-grey);
+  }
+  .main .navbar-main {
+    /* width: 15%; */
+    width: 200px;
+    height: 100%;
+    background: var(--clr-maroon);
+    position: fixed;
+    left: -200px;
+  
+    /* Layout */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  
+    /* transition */
+    transition: left 0.5s ease;
+  }
+  .main .navbar-main.show {
+    left: 0px;
+  }
+  .main .navbar-main .toggle-btn {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    animation: toggleAnimation 1s infinite linear;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  .main .navbar-main .toggle-btn:hover {
+    animation-duration: 1.5s;
+  }
+  @keyframes toggleAnimation {
+    0% {
+      left: 110%;
+    }
+    50% {
+      left: 113%;
+    }
+    100% {
+      left: 110%;
+    }
+  }
+  .main .navbar-main .toggle-btn span {
+    width: 100%;
+    height: 3px;
+    background: white;
+    position: relative;
+  }
+  .main .navbar-main .toggle-btn span:first-child {
+    margin-bottom: 8px;
+    transform: rotate(-140deg);
+  }
+  .main .navbar-main .toggle-btn span:last-child {
+    transform: rotate(140deg);
+  }
+  .main .navbar-main .toggle-btn.closeBtn span:first-child {
+    transform: rotate(140deg);
+  }
+  .main .navbar-main .toggle-btn.closeBtn span:last-child {
+    transform: rotate(-140deg);
+  }
+  .main .navbar-main .logo-container {
+    color: var(--clr-white);
+    margin-top: 100px;
+    padding: 10px;
+  }
+  .main .navbar-main .nav-links {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+  }
+  .main .navbar-main .nav-links ul {
+    widows: 100%;
+    height: 100%;
+  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .main .navbar-main .nav-links ul li {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: var(--clr-white);
+    transition: all 0.1s ease;
+  }
+  .main .navbar-main .nav-links ul li:hover {
+    background: var(--clr-grey);
+    color: var(--clr-white);
+  }
+  
+  @media screen and (max-width: 600px) and (min-width: 200px) {
+    .main .navbar-main {
+      width: 50%;
+      left: -50%;
+    }
+    .main .navbar-main .toggle-btn {
+      left: 105%;
+    }
+    @keyframes toggleAnimation {
+      0% {
+        left: 105%;
+      }
+      50% {
+        left: 110%;
+      }
+      100% {
+        left: 105%;
+      }
+    }
+  }

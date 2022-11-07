@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>“First, solve the problem. Then, write the code.” 
+      </h1><br>
+      <h2> by: John Johnson</h2>
+    </div>
+    <div class='box'>
+      <div class='wave -one'></div>
+      <div class='wave -two'></div>
+      <div class='wave -three'></div>
+    </div>
+    
+    <div class="main">
+      <div class="navbar-main">
+        <div class="logo-container">
+          <h1>Menu</h1>
+        </div>
+        
+        <div class="toggle-btn">
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="nav-links">
+          <ul>
+            <li><a href="calendar.html" style="color: white;  text-decoration: none;">Calendar</a></li>
+            <li><a href="agecal.html" style="color: white;text-decoration: none;">Age Calculator</a></li>
+            <li><a href="countdown.html" style="color: white;text-decoration: none;">Countdown</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const toggleBtn = document.querySelector(".toggle-btn");
+      toggleBtn.addEventListener("click", () => {
+        const navbarMain = document.querySelector(".navbar-main");
+        navbarMain.classList.toggle("show");
+
+        toggleBtn.classList.toggle("closeBtn");
+      });
+    </script>
+  </body>
+</html>

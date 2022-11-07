@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+    background-color: #25a7d7;
+}
+.button {
+    background-color: #25a7d7; 
+    border: none;
+    padding: 20px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 2px;
+    position: absolute;
+  }
+p {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 75px;
+  
+}
+</style>
+<link rel="stylesheet" href="countdown.css" />
+</head>
+<body>
+  <div class='box'>
+    <div class='wave -one'></div>
+    <div class='wave -two'></div>
+    <div class='wave -three'></div>
+  </div>
+  
+    <div class="button"><a href="Main.html" style="color: white; text-decoration:none;">
+        X</a>
+    </div>
+<p>Before New Year</p>
+<p id="demo"></p>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 1, 2023 00:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "HAPPY NEW YEAR!";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
